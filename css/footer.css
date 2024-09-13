@@ -1,0 +1,42 @@
+.footer{
+    background: #F8F8F8;
+    
+}
+
+.footer__t{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 39px;
+}
+.logo__footer{
+    margin-left: 151px;
+}
+
+.footer__text{
+    margin-right: 151px;
+    color: #848484;
+    font-size: 17px;
+    font-family: "Mulish";
+    line-height: 28px;
+}
+
+.footer__line{
+    width: 1219px;
+    height: 0.6px;
+    background-color: #C4C4C4;
+    margin-top: -18px;
+    margin-left: 191px;
+}
+
+.footer__images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    margin-top: 32px;
+}
+
+.footer__images img{
+    padding: 0 20px;
+}
