@@ -1,0 +1,92 @@
+.hero__inner{
+    width: 1600px;
+    height: 720px;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 147px
+}
+
+.hero__foto{
+    width: 687px;
+    height: 654px;
+    margin-top: 72px;
+}
+
+.hero__heading{
+    width: 357px;
+    font-weight: 700;
+    font-family: "Playfair Display";
+    font-size: 64px;
+    line-height: 80px;
+    color: #202336;
+    margin-left: 189px;
+    margin-top: 103px;
+}
+
+.hero__subtitle{
+    color: #202336;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 74px;
+    margin-left: 191px;
+}
+
+.hero__line{
+    border-radius: 4px;
+    background-color: #202336;
+    width: 32px;
+    height: 2px;
+    margin-top: 21px;
+    margin-left: 191px;
+}
+
+.form_1, .form_2, .form_3, .form_4{
+    width: 220px;
+    height: 52px;
+    border-radius: 6px;
+    border: 0.8px solid;
+    border-color: #AFB0B9;
+    color: #4A4C53;
+    font-size: 15px;
+    padding: 0 31px;
+   
+    
+}
+   
+.form_2, .form_4{
+    margin-left: 30px;
+}
+
+.row1{
+    
+    padding-left: 190px;
+    padding-top: 48px;
+    
+}
+.row2{
+    padding-left: 190px;
+    padding-top: 35px;
+}
+
+.hero__button{
+    width: 180px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #FB8F1D;
+    border-color: #FB8F1D;
+    color: #FFF;
+    font-family: 'Mulish';
+    font-size: 17px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 47px;
+    margin-left: 190px;
+    
+}
+
+.hero__button:hover, .hero__button:focus, .hero__button:active{
+    opacity: .75;
+}
