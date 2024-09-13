@@ -1,0 +1,166 @@
+.destations{
+    background: #FFF;
+}
+
+.destations__caption{
+    width: 1600px;
+    height: 741px;
+    margin-left: 240px;
+   
+}
+
+.destations__top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.destations__title{
+    width: 481px;
+    color: #000;
+    font-family: "Playfair Display";
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.view-all__button{
+    color: #FB8F1D;
+    font-family: "Inter";
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.view-all__button:hover, .view-all__button:focus, .view-all__link:active{
+    opacity: .75;
+}
+
+.destations__view-all{
+    margin-top: 15px;
+    margin-right: 490px;
+}
+
+.destations__cards{
+    background-color: #FFF;
+    width: 100%;
+    position: relative;
+}
+
+.destations__images{
+    display: flex;
+    gap: 25px;
+}
+
+.view-img{
+    border-radius: 10px;
+}
+
+.destations__info{
+    border-top-right-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    left:0px;
+    background-color: #FFF;
+    text-align: left;
+    width: 120px;
+    height: 56px;
+}
+
+.destations__info h5{
+    font-weight: 600;
+    line-height: 25px;
+    font-family: "Inter";
+    font-size: 17px;
+    color: #000;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+.destations__info p{
+    color: #80918E;
+    font-family: "Inter";
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.destations__info1{
+    border-top-right-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    left: 284px;
+    background-color: #FFF;
+    text-align: left;
+    width: 120px;
+    height: 56px;
+}
+
+.destations__info1 h5{
+    font-weight: 600;
+    line-height: 25px;
+    font-family: "Inter";
+    font-size: 17px;
+    color: #000;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.destations__info1 p{
+    color: #80918E;
+    font-family: "Inter";
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.destations__info2{
+    border-top-right-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    left: 571px;
+    background-color: #FFF;
+    text-align: left;
+    width: 120px;
+    height: 56px;
+}
+
+.destations__info2 h5{
+    font-weight: 600;
+    line-height: 25px;
+    font-family: "Inter";
+    font-size: 17px;
+    color: #000;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.destations__info2 p{
+    color: #80918E;
+    font-family: "Inter";
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.destations__info3{
+    border-top-right-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    left: 857px;
+    background-color: #FFF;
+    text-align: left;
+    width: 120px;
+    height: 56px;
+}
+
+.destations__info3 h5{
+    font-weight: 600;
+    line-height: 25px;
+    font-family: "Inter";
+    font-size: 17px;
+    color: #000;
+    margin-bottom: 3px;
+    margin-top: 10px;
+}
+
+.destations__info3 p{
+    color: #80918E;
+    font-family: "Inter";
+    font-weight: 500;
+    line-height: 24px;
+}
