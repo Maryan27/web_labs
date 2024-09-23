@@ -1,14 +1,9 @@
 body {
-    margin: 0 auto;
     font-family: "Inter", "Playfair Display", "Mulish";
     font-style: normal;
     color: #202336;
     
 }
-
-.container{
-    margin: 0 auto;
-    max-width: 1600px;}
 
 a {
     text-decoration: none;
@@ -22,6 +17,19 @@ li {
     margin: 0;
 }
 
+
+.container{
+    margin: 0 auto;
+    max-width: 1100px;
+    
+}
+
+@media screen and (max-width: 1120px) {
+    .container {
+        padding: 10px 40px;
+    }
+}
+
 p {
     margin: 0;
 }
@@ -29,3 +37,4 @@ p {
 button {
     border: 0;
 }
+

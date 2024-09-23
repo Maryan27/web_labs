@@ -1,35 +1,37 @@
-.hero__inner{
-    width: 1600px;
-    height: 720px;
-    background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 147px
+.hero {
+    height: 940px;
+    
 }
 
-.hero__foto{
-    width: 687px;
-    height: 654px;
-    margin-top: 72px;
+.hero__container {
+    padding-top: 100px;
+    position: relative;
+}
+
+.hero__inner{
+    max-width: 510px;
+    height: 720px;
+    background-size: cover;
+    
 }
 
 .hero__heading{
-    width: 357px;
+   
     font-weight: 700;
     font-family: "Playfair Display";
     font-size: 64px;
     line-height: 80px;
     color: #202336;
-    margin-left: 189px;
-    margin-top: 103px;
-}
+    text-align: left;
+}  
 
 .hero__subtitle{
     color: #202336;
     font-size: 22px;
     font-weight: 600;
-    margin-top: 74px;
-    margin-left: 191px;
+    line-height: 26.63px;
+    text-align: left;
+   
 }
 
 .hero__line{
@@ -37,9 +39,26 @@
     background-color: #202336;
     width: 32px;
     height: 2px;
-    margin-top: 21px;
-    margin-left: 191px;
+    margin-bottom: 13px;
+    text-align: left;
+    
+    
 }
+
+.hero__foto{
+    width: 487px;
+    height: 454px;
+    margin-top: -412px;
+    margin-left: 730px;
+}
+
+
+.hero__form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px
+}
+
 
 .form_1, .form_2, .form_3, .form_4{
     width: 220px;
@@ -49,25 +68,25 @@
     border-color: #AFB0B9;
     color: #4A4C53;
     font-size: 15px;
-    padding: 0 31px;
-   
+    padding: 10px;
     
 }
    
 .form_2, .form_4{
-    margin-left: 30px;
+    margin-top: 35px;
 }
 
 .row1{
     
-    padding-left: 190px;
-    padding-top: 48px;
+    
+    padding-top: 35px;
     
 }
 .row2{
-    padding-left: 190px;
+    
     padding-top: 35px;
 }
+
 
 .hero__button{
     width: 180px;
@@ -82,11 +101,90 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 47px;
-    margin-left: 190px;
+    
+    margin-top: 30px;
     
 }
 
 .hero__button:hover, .hero__button:focus, .hero__button:active{
     opacity: .75;
 }
+
+.hero__button:hover {
+    animation-name: pulsik;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pulsik {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero__inner {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .hero__heading {
+        text-align: center;
+    }
+
+    .hero__subtitle {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero {
+        height: 700px;
+    }
+
+    .hero__container {
+        padding-top: 100px;
+    }
+
+    .hero__foto {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .hero__form {
+        display: grid;
+        grid-template-columns: repeat(1, 220px);
+        grid-gap: 20px;
+        justify-content: center;
+        
+    }
+
+    
+    .hero__line{
+        margin-left: 145px;
+    }
+}
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,50 +1,45 @@
 .world{
-    display: flex;
-    align-items: center;
-    background: #F8F8F8;
-    margin-bottom: 129px;
     margin-top: 175px;
 }
 
-.world__explore{
-    background: #F8F8F8;
-    background-size: cover;
-    width: 1600px;
-    height: 774px;
-    flex-shrink: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 78px
+.world:first-child{
+    margin-top: 120px;
 }
 
-.worldd__info{
-    width: 481px;
-    font-family: "Playfair Display";
+.world__container {
     display: flex;
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 50px;
-    color: #000;
-    margin-bottom: 20px;
-    margin-top: 207px;
-    margin-left: 102px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.world__description{
-    width: 450px;
-    color: #7D7987;
-    font-family: "Mulish";
-    font-size: 17px;
-    font-weight: 300;
-    line-height: 30px;
-    margin-bottom: 39px;
-    margin-left: 102px;
+.world__explore{
+    max-width: 481px;
 }
 
 .world__foto{
-    margin-top: 111px;
-    margin-left: 141px;
+    max-width: 50%;
+    margin-bottom: 20px;
 }
+
+.world__info {
+    font-family: 'Playfair Display';
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: left;
+}
+
+
+.world__description{
+    font-family: 'Mulish';
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 30px;
+    text-align: left;
+    color: #7D7987;
+    
+}
+
 
 .world__button{
     width: 164px;
@@ -60,9 +55,60 @@
     font-size: 16px;
     font-weight: 600;
     margin-top: 33px;
-    margin-left: 102px;
+    margin-left: 0px;
 }
+
+.world__button:hover {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 
 .world__button:hover, .world__button:focus, .world__link:active{
     opacity: .75;
+}
+
+@media screen and (max-width: 768px) {
+    .world {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .world__container {
+        flex-direction: column;
+        /*padding: 10px 40px;*/
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .world__explore {
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .world__info {
+        text-align: center;
+        
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .world__foto {
+        max-width: 65%;
+        margin-top: 20px;
+    }
 }
