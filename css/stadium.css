@@ -1,0 +1,78 @@
+.text-center {
+  font-family: 'Mooli';
+  font-weight: 700;
+}
+
+.create_card {
+  font-family: 'Inter';
+}
+
+#submit_button {
+  padding: 10px 30px;
+  color: white;
+  border: 1px solid #3db005;
+  border-radius: 8px;
+  background: #3db005;
+}
+
+#find_button {
+  padding: 10px 30px;
+  color: white;
+  border: 1px solid #028a19;
+  border-radius: 10px;
+  background: #028a19;
+}
+
+#cancel_button {
+  padding: 10px 30px;
+  color: white;
+  border: 1px solid #aa0606;
+  border-radius: 10px;
+  background: #aa0606;
+}
+
+#clear_all_button {
+  padding: 5px 25px;
+  color: white;
+  border: 1px solid #aa0606;
+  border-radius: 10px;
+  background: #aa0606;
+ 
+}
+
+#calculate_button {
+  padding: 5px 25px;
+  color: white;
+  border: 1px solid #028a19;
+  border-radius: 10px;
+  background: #028a19;
+}
+
+#sort_button{
+  padding: 5px 25px;
+  color: white;
+  border: 1px solid #028a19;
+  border-radius: 10px;
+  background: #028a19;
+}
+
+.item-container__image {
+  min-height: 200px;
+  max-width: 420px;
+}
+
+#save_button {
+  padding: 10px 30px;
+  color: white;
+  border: 1px solid #3db005;
+  border-radius: 8px;
+  background: #3db005;
+}
+
+#create_button {
+  padding: 5px 30px;
+  color: white;
+  border: 1px solid #028a19;
+  border-radius: 8px;
+  background: #028a19;
+}

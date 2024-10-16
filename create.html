@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Stadium</title>
+    <link rel="stylesheet" href="./css/stadium.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container p-3" style="max-width: 600px;">
+            <h1 class="text-center">Create New Stadium</h1>
+            <form id="create_form">
+                <div class="mb-3">
+                    <label for="name_input" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name_input" required>
+                </div>
+                <div class="mb-3">
+                    <label for="viewers_input" class="form-label">Number of Viewers</label>
+                    <input type="number" class="form-control" id="viewers_input" min="0" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="lighting_input" class="form-label">Lighting Power</label>
+                    <input type="number" class="form-control" id="lighting_input" min="0" required>
+                </div>
+                <button id="submit_button" type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.2.0/uuid.min.js"></script>
+    <script type="module" src="./js/create.js"></script>
+</body>
+</html>
