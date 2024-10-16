@@ -1,0 +1,63 @@
+.text-center {
+    font-family: 'Mooli';
+    font-weight: 700;
+  }
+  
+  .create_card {
+    font-family: 'Inter';
+  }
+  
+  #submit_button {
+    padding: 10px 30px;
+    color: white;
+    border: 1px solid #3db005;
+    border-radius: 8px;
+    background: #3db005;
+  }
+  
+  #find_button {
+    padding: 10px 30px;
+    color: white;
+    border: 1px solid #3db005;
+    border-radius: 10px;
+    background: #3db005;
+  }
+  
+  #cancel_button {
+    padding: 10px 30px;
+    color: white;
+    border: 1px solid #aa0606;
+    border-radius: 10px;
+    background: #aa0606;
+  }
+  
+  #clear_all_button {
+    padding: 5px 25px;
+    color: white;
+    border: 1px solid #aa0606;
+    border-radius: 10px;
+    background: #aa0606;
+   
+  }
+  
+  #calculate_button {
+    padding: 5px 25px;
+    color: white;
+    border: 1px solid #3db005;
+    border-radius: 10px;
+    background: #3db005;
+  }
+
+  #sort_button{
+    padding: 5px 25px;
+    color: white;
+    border: 1px solid #3db005;
+    border-radius: 10px;
+    background: #3db005;
+  }
+  
+  .item-container__image {
+    min-height: 200px;
+    max-width: 420px;
+  }
+  
