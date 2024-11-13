@@ -1,0 +1,19 @@
+.object-button {
+    border-radius: 10px;
+    background-color: #09992b;
+    border: none; 
+    color: #FFFFFF;
+    text-align: center;
+    height: 27px;
+    width: 110px;
+    
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.object-button:hover {
+    background-color: #04a104; 
+}

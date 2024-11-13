@@ -19,3 +19,9 @@
 .objects__button:hover {
     background-color: #45a049; 
 }
+
+.view-less-button {
+    font-size: 18px;
+    height: 243px;
+    margin-top: 20px;
+}

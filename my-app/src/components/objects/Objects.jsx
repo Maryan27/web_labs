@@ -16,7 +16,6 @@ const Objects = () => {
             date: "28.10.2024", 
             time: "18:30", 
             location: "Anfield",
-             
         },
         { 
             id: 2, 
@@ -25,7 +24,6 @@ const Objects = () => {
             date: "30.10.2024", 
             time: "22:00",  
             location: "Anfield",
-            
         },
         { 
             id: 3, 
@@ -34,7 +32,6 @@ const Objects = () => {
             date: "04.11.2024", 
             time: "14:30", 
             location: "Anfield",
-            
         },
         { 
             id: 4, 
@@ -43,7 +40,6 @@ const Objects = () => {
             date: "10.11.2024", 
             time: "18:00", 
             location: "Anfield",
-             
         },
     ];
 
@@ -59,7 +55,7 @@ const Objects = () => {
                             date={ticket.date} 
                             time={ticket.time} 
                             location={ticket.location} 
-                            price={ticket.price} 
+                            showButton={false} 
                         />
                     ))}
                 </div>
@@ -69,8 +65,3 @@ const Objects = () => {
 }
 
 export default Objects;
-
-
-
-
-

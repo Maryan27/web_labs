@@ -1,0 +1,42 @@
+.object-detail {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.object-detail__title {
+    font-weight: 600;
+    font-size: 40px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.object-detail__date,
+.object-detail__time,
+.object-detail__location {
+    font-weight: 400;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+
+.object-detail__fields {
+    display: flex;
+    gap: 10px; 
+}
+
+.object-detail__img {
+    border-radius: 10px;
+    height: 180px;
+    width: 270px;
+    margin-top: 15px;
+}
+
+.object-detail__price {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    font-weight: 500;
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
