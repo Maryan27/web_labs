@@ -48,5 +48,3 @@ const ButtonView = () => {
 }
 
 export default ButtonView;
-
-

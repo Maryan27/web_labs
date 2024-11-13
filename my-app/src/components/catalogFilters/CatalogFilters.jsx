@@ -94,8 +94,3 @@ function CatalogFilters({ onFilterApply }) {
 }
 
 export default CatalogFilters;
-
-
-
-
-

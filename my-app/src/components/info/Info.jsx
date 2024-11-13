@@ -3,6 +3,9 @@ import './info.css';
 import ButtonObject from "../buttonObject/ButtonObject"; 
 
 const Info = ({ img, title, date, time, location, price, itemId, showButton = true }) => { 
+    console.log("Image URL:", img); // Лог для перевірки URL
+    console.log("Rendering Info for:", title); // Лог для перевірки заголовка
+
     return (
         <div className="info__card">
             <img src={img} alt={title} className="info__image" />
@@ -25,4 +28,3 @@ const Info = ({ img, title, date, time, location, price, itemId, showButton = tr
 }
 
 export default Info;
-

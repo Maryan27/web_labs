@@ -1,17 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react"; 
+import { useParams } from "react-router-dom"; 
+import { getDetailedTicketInfo } from "../../fetching"; 
+import Spinner from "../../components/spinner/Spinner"; 
 import './objectDetails.css';
 
-function ObjectDetails({ objectsData }) {
+const ObjectDetails = () => {
   const { id } = useParams();
   const [selectedTicket, setSelectedTicket] = useState(null);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    if (objectsData && Array.isArray(objectsData)) {
-      const ticket = objectsData.find((item) => item.id === parseInt(id, 10));
-      setSelectedTicket(ticket);
-    }
-  }, [id, objectsData]);
+    setLoading(true);
+    getDetailedTicketInfo(id) 
+      .then((response) => {
+        setSelectedTicket(response.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error("Помилка під час отримання даних:", error);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <Spinner />; 
+  }
 
   if (!selectedTicket) {
     return <div>Ticket not found</div>;
@@ -46,7 +59,7 @@ function ObjectDetails({ objectsData }) {
           </div>
           <div className="object-detail__fields">
             <div className="input">
-              <form>
+              <form className="ticket-form">
                 <label>
                   <input 
                     type="number" 
@@ -54,6 +67,13 @@ function ObjectDetails({ objectsData }) {
                     placeholder="Number of tickets" 
                     min={1} 
                   />
+                </label>
+                <label>
+                  <select id="ticketType">
+                    <option value="standard">Standard Ticket</option>
+                    <option value="vip">VIP Ticket</option>
+                    <option value="child">Child Ticket</option>
+                  </select>
                 </label>
               </form>
             </div>
@@ -67,5 +87,3 @@ function ObjectDetails({ objectsData }) {
 }
 
 export default ObjectDetails;
-
-

@@ -1,75 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react"; 
 import './catalogObjects.css'; 
-import crystalImg from "../img/home_match.jpg";
-import evertonImg from "../img/everton.jpg";
-import westHamImg from "../img/west_ham.jpg";
-import wolvesImg from "../img/wolves.jpg";
-
 import CatalogFilters from "./catalogFilters/CatalogFilters"; 
 import Info from "./info/Info"; 
-
-export const objectsData = [
-    { id: 1, img: crystalImg, title: "Liverpool : Crystal Peles", date: "28.10.2024", time: "18:30", location: "Anfield", price: "180$" },
-    { id: 2, img: evertonImg, title: "Liverpool : Everton", date: "30.10.2024", time: "22:00", location: "Anfield", price: "550$" },
-    { id: 3, img: westHamImg, title: "Liverpool : West Ham", date: "04.11.2024", time: "14:30", location: "Anfield", price: "350$" },
-    { id: 4, img: wolvesImg, title: "Liverpool : Wolves", date: "10.11.2024", time: "18:00", location: "Anfield", price: "320$" },
-];
+import { getFilteredTicketList } from "../fetching"; 
+import Spinner from "./spinner/Spinner"; 
 
 function CatalogObjects() {
-    const [filteredObjects, setFilteredObjects] = useState(objectsData);
+    const [loading, setLoading] = useState(true); 
+    const [objectsData, setObjectsData] = useState([]); 
+    const [filteredObjects, setFilteredObjects] = useState([]); 
 
+    
+    useEffect(() => {
+        setLoading(true); 
+        getFilteredTicketList({}) 
+            .then(response => {
+                setObjectsData(response.data); 
+                setFilteredObjects(response.data); 
+                setTimeout(() => setLoading(false), 1000); 
+            })
+            .catch(error => {
+                setLoading(false); 
+            });
+    }, []); 
+
+    
     const handleFilterApply = (selectedFilters) => {
-        const searchQuery = selectedFilters.search.toLowerCase(); 
+        setLoading(true); 
 
-        const filtered = objectsData.filter((object) => {
-            const nameMatch = selectedFilters.match !== "any" ? object.title === selectedFilters.match : true;
+        const searchQuery = document.getElementById("mySearch").value.toLowerCase();
 
-            const dateMatch = selectedFilters.date !== "any" ? object.date === selectedFilters.date : true;
+        const filters = {
+            match: selectedFilters.match !== "any" ? selectedFilters.match : "", 
+            date: selectedFilters.date !== "any" ? selectedFilters.date : "", 
+            price: selectedFilters.price !== "any" && selectedFilters.price !== "price" ? selectedFilters.price : "", 
+            searchQuery: searchQuery
+        };
 
-            const priceRange = selectedFilters.price.split('-');
-            const minPrice = parseFloat(priceRange[0]) || 0;
-            const maxPrice = parseFloat(priceRange[1]) || Infinity;
-
-            const priceMatch = selectedFilters.price !== "price"
-                ? parseFloat(object.price.replace('$', '')) >= minPrice && parseFloat(object.price.replace('$', '')) <= maxPrice
-                : true;
-
-            const nameSearchMatch = object.title.toLowerCase().includes(searchQuery);
-
-            return nameMatch && dateMatch && priceMatch && nameSearchMatch;
-        });
-
-        setFilteredObjects(filtered);
+        getFilteredTicketList(filters)
+            .then(response => {
+                setFilteredObjects(response.data);
+                setTimeout(() => setLoading(false), 1000);
+            })
+            .catch(error => {
+                console.error("Error fetching filtered data:", error);
+                setLoading(false); 
+            });
     };
 
     return (
         <section className="catalog">
+            {loading ? <Spinner /> : null} 
             <div className="catalog-filters">
-                <CatalogFilters onFilterApply={handleFilterApply} />
+                <CatalogFilters onFilterApply={handleFilterApply} /> 
             </div>
             <div className="catalog-objects">
-                <div className="objects-container"> 
-                    {filteredObjects.map((object) => (
-                        <Info 
-                            key={object.id} 
-                            img={object.img}
-                            title={object.title} 
-                            date={object.date} 
-                            time={object.time}
-                            location={object.location}
-                            price={object.price}  
-                            itemId={object.id} 
-                        />
-                    ))}
-                </div>
+                {!loading && filteredObjects.map((object) => (
+                    <Info 
+                        key={object.id} 
+                        img={object.img} 
+                        title={object.title} 
+                        date={object.date} 
+                        time={object.time}
+                        location={object.location}
+                        price={object.price}  
+                        itemId={object.id} 
+                    />
+                ))}
             </div>
         </section>
     );
 }
 
 export default CatalogObjects;
-
-
-
-
-

@@ -1,7 +1,8 @@
 .catalog-objects {
     margin-bottom: 30px; 
     display: flex;
-    flex-direction: column; 
+    flex-direction: row; 
+    
 }
 
 .catalog-filters {
