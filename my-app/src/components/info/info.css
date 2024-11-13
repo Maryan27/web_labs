@@ -1,0 +1,33 @@
+.info {
+    padding-top: 30px;
+}
+
+.info__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; 
+    margin-left: 70px;
+    
+}
+
+.info__part {
+    flex: 0.9; 
+    margin: 0 25px; 
+}
+
+.info__title {
+    font-family: 'Roboto', sans-serif;
+    color: #fc0a0a;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px; 
+}
+
+.info__paragraph {
+    font-family: 'Roboto', sans-serif;
+    color: #000101;
+    font-size: 18px;
+    margin-top: 5px;
+    max-width: 340px;
+}
+
