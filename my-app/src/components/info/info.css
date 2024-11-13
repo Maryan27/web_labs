@@ -1,33 +1,44 @@
 .info {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
-.info__items {
+.info__card {
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    padding: 20px; 
+    transition: box-shadow 0.3s; 
+    max-width: 230px; 
+    margin: 20px; 
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; 
-    margin-left: 70px;
-    
+    flex-direction: column; 
+    align-items: center; 
 }
 
-.info__part {
-    flex: 0.9; 
-    margin: 0 25px; 
+.info__card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .info__title {
     font-family: 'Roboto', sans-serif;
-    color: #fc0a0a;
-    font-size: 30px;
+    color: #000101;
+    font-size: 17px;
     font-weight: 500;
-    margin-bottom: 20px; 
+    margin-bottom: 15px; 
+    margin-top: 10px;
 }
 
-.info__paragraph {
+.info__date, .info__time, .info__location, .info__price {
     font-family: 'Roboto', sans-serif;
     color: #000101;
-    font-size: 18px;
-    margin-top: 5px;
-    max-width: 340px;
+    font-size: 15px;
+    margin: 5px 0; 
+    text-align: center; 
+}
+
+.info__image {
+    width: 60%; 
+    height: auto; 
+    border-radius: 10px;
+    margin-bottom: 10px; 
 }
 

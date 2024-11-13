@@ -1,5 +1,7 @@
+import React from "react";
 import './header.css';
 import logo from '../../img/logo_liverpoll.png'; 
+import { NavLink } from "react-router-dom"; 
 
 function Header() {
     return (
@@ -15,9 +17,30 @@ function Header() {
                     </div>
                     <nav className="header__nav">
                         <ul>
-                            <li><a href="#!">Shop</a></li>
-                            <li><a href="#!">Catalog</a></li>
-                            <li><a href="#!">Team</a></li>
+                            <li>
+                                <NavLink 
+                                    to="/HomePage" 
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink 
+                                    to="/Catalog" 
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    Catalog
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink 
+                                    to="/Team" 
+                                    className={({ isActive }) => (isActive ? 'active' : '')}
+                                >
+                                    Team
+                                </NavLink>
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -27,3 +50,5 @@ function Header() {
 }
 
 export default Header;
+
+

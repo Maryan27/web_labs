@@ -1,0 +1,21 @@
+.button-view-container {
+    display: flex; 
+    justify-content: center; 
+    padding-bottom: 50px;
+}
+
+.objects__button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 12px 25px; 
+    text-align: center;
+    font-size: 14px; 
+    border-radius: 15px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.objects__button:hover {
+    background-color: #45a049; 
+}

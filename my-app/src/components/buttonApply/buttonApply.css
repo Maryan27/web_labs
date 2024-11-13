@@ -1,0 +1,21 @@
+.button-apply-container {
+    display: flex; 
+    justify-content: center; 
+    
+}
+
+.apply-button {
+    background-color: #0b9b06;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 40px;
+    width: 120px;
+    height: 30px;
+}
+
+.apply-button:hover {
+    background-color: #625f5f;
+}

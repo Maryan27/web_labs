@@ -1,44 +1,33 @@
-import './info.css'; 
+import React from "react";
+import './info.css';
 
-
-const Info = () => {
+const Info = ({ img, title, date, time, location, price }) => {
     return (
-        <section className="info">
-            <div className="info__items">
-                <div className="info__part">
-                    <h3 className="info__title">NEXT GAME</h3>
-                    <p className="info__paragraph">
-                        Liverpool : Chelsea<br />
-                        20.10.2024<br />
-                        18:30<br />
-                        Anfield
-                    </p>
-                </div>
-                <div className="info__part">
-                    <h3 className="info__title">Ticket Price</h3>
-                    <p className="info__paragraph">
-                        Sector A : 410 dollars<br />
-                        Sector B : 280 dollars<br />
-                        Sector C : 150 dollars<br />
-                        VIP : 700 dollars
-                    </p>
-                </div>
-                <div className="info__part">
-                    <h3 className="info__title">Last Games</h3>
-                    <p className="info__paragraph">
-                        Crystal Palace 0:1 Liverpool<br />
-                        Liverpool 2:0 Bologna<br />
-                        Wolves 1:2 Liverpool<br />
-                        Liverpool 5:1 West Ham
-                    </p>
+        <div className="info__card">
+            <h3 className="info__title">NEXT GAME</h3>
+            <img src={img} alt={title} className="info__image" />
+            <div className="info__body">
+                <div className="info__text">
+                    <div className="info__title">{title || "No title provided"}</div>
+                    <div className="info__date">Date: {date || "No date provided"}</div>
+                    <div className="info__time">Time: {time || "No time provided"}</div>
+                    <div className="info__location">Location: {location || "No location provided"}</div>
+                    {price && <div className="info__price">Price: {price}</div>} {/* Відображаємо ціну */}
                 </div>
             </div>
-            
-        </section>
+        </div>
     );
 }
 
 export default Info;
+
+
+
+
+
+
+
+
 
 
 

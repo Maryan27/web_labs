@@ -1,0 +1,9 @@
+.objects {
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+.objects__cards {
+    display: flex;
+    justify-content: space-between;
+}
