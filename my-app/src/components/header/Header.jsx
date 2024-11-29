@@ -35,10 +35,10 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink 
-                                    to="/Team" 
+                                    to="/Cart" 
                                     className={({ isActive }) => (isActive ? 'active' : '')}
                                 >
-                                    Team
+                                    Cart
                                 </NavLink>
                             </li>
                         </ul>

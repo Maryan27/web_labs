@@ -22,7 +22,6 @@
 .ticket-form {
     display: flex;
     gap: 15px; 
-    
 }
 
 .object-detail__fields input,
@@ -33,6 +32,7 @@
     border: 1px solid #ccc; 
     width: 150px; 
 }
+
 .object-detail__img {
     border-radius: 10px;
     height: 180px;
@@ -40,13 +40,46 @@
     margin-top: 15px;
 }
 
-.object-detail__price {
+.price-and-buttons {
     display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    font-weight: 500;
-    font-size: 30px;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 115px;
+    margin-top: 60px;
     margin-bottom: 20px;
 }
 
+.object-detail__price {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.options {
+    display: flex;
+    gap: 11px;
+}
+
+.options button {
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.go-back__button {
+    background-color: #b00707;
+}
+
+.go-back__button:hover {
+    background-color: #c5190a;
+}
+
+.add__button {
+    background-color: #09a804;
+}
+
+.add__button:hover {
+    background-color: #0bb805;
+}

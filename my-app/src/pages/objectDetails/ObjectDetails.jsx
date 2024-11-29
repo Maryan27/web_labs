@@ -1,34 +1,63 @@
 import React, { useState, useEffect } from "react"; 
-import { useParams } from "react-router-dom"; 
+import { useParams, useNavigate } from "react-router-dom"; 
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/actions"; 
 import { getDetailedTicketInfo } from "../../fetching"; 
 import Spinner from "../../components/spinner/Spinner"; 
 import './objectDetails.css';
 
 const ObjectDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [loading, setLoading] = useState(true); 
+  const [inputValue, setInputValue] = useState("");
+  const dispatch = useDispatch();
+  
+  const objectsData = useSelector((state) => state.cart);
 
   useEffect(() => {
     setLoading(true);
-    getDetailedTicketInfo(id) 
+    getDetailedTicketInfo(id)
       .then((response) => {
         setSelectedTicket(response.data);
         setLoading(false);
       })
       .catch((error) => {
         setLoading(false);
-        console.error("Помилка під час отримання даних:", error);
+        console.error("Error fetching data:", error);
       });
   }, [id]);
 
   if (loading) {
-    return <Spinner />; 
+    return <Spinner />;
   }
 
   if (!selectedTicket) {
     return <div>Ticket not found</div>;
   }
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleGoBack = () => {
+    navigate("/catalog");
+  };
+
+  const handleAddToCart = () => {
+    const existingTicket = objectsData.find(item => item.objectData.id === selectedTicket.id);
+    const currentAmount = existingTicket ? existingTicket.amount : 0;
+    
+    const newAmount = currentAmount + (parseInt(inputValue) > 0 ? parseInt(inputValue) : 1);
+
+    if (newAmount <= 5) {
+      dispatch(addToCart(selectedTicket, newAmount - currentAmount));
+      alert("Your ticket has been added to the cart");
+    } else {
+      alert("You can add a maximum of 5 tickets for this event.");
+    }
+  };
 
   const imagePath = selectedTicket.img;
 
@@ -66,24 +95,30 @@ const ObjectDetails = () => {
                     id="ticketCount" 
                     placeholder="Number of tickets" 
                     min={1} 
+                    value={inputValue}
+                    onChange={handleInputChange}
                   />
                 </label>
-                <label>
-                  <select id="ticketType">
-                    <option value="standard">Standard Ticket</option>
-                    <option value="vip">VIP Ticket</option>
-                    <option value="child">Child Ticket</option>
-                  </select>
-                </label>
+              
               </form>
+            </div>
+          </div>
+          <div className="price-and-buttons">
+            <div className="object-detail__price">Price: {selectedTicket.price}</div>
+            <div className="options">
+              <button className="go-back__button" onClick={handleGoBack}>Go back</button>
+              <button className="add__button" onClick={handleAddToCart}>Add to cart</button>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="object-detail__price">Price: {selectedTicket.price} </div>
     </section>
   );
-}
+};
 
 export default ObjectDetails;
+
+
+
+
+

@@ -73,3 +73,4 @@ function CatalogObjects() {
 }
 
 export default CatalogObjects;
+
