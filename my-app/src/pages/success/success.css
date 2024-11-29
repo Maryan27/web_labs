@@ -1,0 +1,27 @@
+.success-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-box h2, .success-box a1 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.success-box a1 {
+    font-size: 16px;
+}
+
+.button__to__catalog{
+    background-color: rgb(5, 131, 34);
+    margin-bottom: 25px;
+    color: rgb(248, 253, 253);
+    height: 35px;
+    width: 140px;
+    border-radius: 7px;
+    border-color: aliceblue;
+    cursor: pointer;
+}
+

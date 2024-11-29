@@ -1,22 +1,28 @@
-export const addToCart = (objectData, amount) => ({
+export const addToCart = (objectData, amount, ticketType) => ({
     type: 'ADD_TO_CART',
     payload: {
-        objectData,
-        amount,
+      objectData,
+      amount,
+      ticketType
     },
 });
-
-export const removeFromCart = (objectDataId) => ({
+  
+export const removeFromCart = ({ id, ticketType }) => ({
     type: 'REMOVE_FROM_CART',
-    payload: objectDataId,
+    payload: { id, ticketType },
 });
-
-export const incrementAmount = (objectDataId) => ({
+  
+export const incrementAmount = ({ id, ticketType }) => ({
     type: 'INCREMENT_AMOUNT',
-    payload: objectDataId,
+    payload: { id, ticketType },
+});
+  
+export const decrementAmount = ({ id, ticketType }) => ({
+    type: 'DECREMENT_AMOUNT',
+    payload: { id, ticketType },
 });
 
-export const decrementAmount = (objectDataId) => ({
-    type: 'DECREMENT_AMOUNT',
-    payload: objectDataId,
+
+export const clearCart = () => ({
+    type: 'CLEAR_CART',
 });

@@ -1,51 +1,53 @@
 import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementAmount, incrementAmount, removeFromCart } from '../../redux/actions';
+import { useNavigate } from 'react-router-dom';
 import './cart.css';
 
 function Cart() {
     const objectsData = useSelector((state) => state.cart);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const MAX_TICKETS = 5; 
+    const MAX_TICKETS = 5;
 
-    const handleRemoveFromCart = (objectDataId) => {
-        dispatch(removeFromCart(objectDataId));
+    const handleRemoveFromCart = (objectDataId, ticketType) => {
+        dispatch(removeFromCart({ id: objectDataId, ticketType }));
     };
 
-    const handleIncrementAmount = (objectDataId) => {
-        const item = objectsData.find(item => item.objectData.id === objectDataId);
+    const handleIncrementAmount = (objectDataId, ticketType) => {
+        const item = objectsData.find(item => item.objectData.id === objectDataId && item.ticketType === ticketType);
         const newAmount = item.amount + 1;
 
         if (newAmount <= MAX_TICKETS) {
-            dispatch(incrementAmount(objectDataId));
+            dispatch(incrementAmount({ id: objectDataId, ticketType }));
         }
     };
 
-    const handleDecrementAmount = (objectDataId) => {
-        const item = objectsData.find(item => item.objectData.id === objectDataId);
+    const handleDecrementAmount = (objectDataId, ticketType) => {
+        const item = objectsData.find(item => item.objectData.id === objectDataId && item.ticketType === ticketType);
 
         if (item.amount > 1) {
-            dispatch(decrementAmount(objectDataId));
+            dispatch(decrementAmount({ id: objectDataId, ticketType }));
         }
     };
 
     const calculateTotalAmount = (price, amount) => {
-        const numericPrice = parseFloat(price) || 0;  // parseFloat замість Number для точності з десятковими
+        const numericPrice = parseFloat(price) || 0;
         return numericPrice * amount;
     };
 
     const totalAmount = objectsData.reduce((total, item) => {
-        const itemPrice = parseFloat(item.objectData.price) || 0; // parseFloat тут теж
+        const itemPrice = parseFloat(item.objectData.price) || 0;
         return total + itemPrice * item.amount;
     }, 0);
 
     const goBack = () => {
-       window.history.back();  
+       window.history.back();
     };
 
     const Continue = () => {
-        
+        navigate('/checkout');
     };
 
     return (
@@ -53,7 +55,7 @@ function Cart() {
             <div className="cart__objects">
                 {objectsData.length > 0 ? (
                     objectsData.map((object) => (
-                        <div key={object.objectData.id} className="cart__object">
+                        <div key={object.objectData.id + object.ticketType} className="cart__object">
                             <div className='cart__left'>
                                 <div className='cart__object__title'>
                                     {object.objectData.title}
@@ -61,12 +63,15 @@ function Cart() {
                                 <div className='cart__object__price'>
                                     Price: {parseFloat(object.objectData.price).toFixed(2)}$
                                 </div>
+                                <div className='cart__object__type'>
+                                    Type: {object.ticketType}
+                                </div>
                             </div>
                             <div className='cart__right'>
                                 <button 
                                     className='cart__object__plus' 
-                                    onClick={() => handleIncrementAmount(object.objectData.id)}
-                                    disabled={object.amount >= MAX_TICKETS} // вимикаємо кнопку, якщо досягнуто ліміту для цього матчу
+                                    onClick={() => handleIncrementAmount(object.objectData.id, object.ticketType)}
+                                    disabled={object.amount >= MAX_TICKETS} 
                                 >
                                     +
                                 </button>
@@ -75,7 +80,7 @@ function Cart() {
                                 </div>
                                 <button 
                                     className='cart__object__minus' 
-                                    onClick={() => handleDecrementAmount(object.objectData.id)}
+                                    onClick={() => handleDecrementAmount(object.objectData.id, object.ticketType)}
                                 >
                                     -
                                 </button>
@@ -84,7 +89,7 @@ function Cart() {
                                 </div>
                                 <button 
                                     className='cart__object__remove' 
-                                    onClick={() => handleRemoveFromCart(object.objectData.id)}
+                                    onClick={() => handleRemoveFromCart(object.objectData.id, object.ticketType)}
                                 >
                                     Remove
                                 </button>
@@ -106,7 +111,7 @@ function Cart() {
                             Go Back
                         </button>
                         <button className='cart__button__continue' onClick={Continue}>
-                            Continue
+                            Continue 
                         </button>
                     </div>
                 )}

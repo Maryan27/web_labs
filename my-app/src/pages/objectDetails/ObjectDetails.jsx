@@ -12,6 +12,7 @@ const ObjectDetails = () => {
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [loading, setLoading] = useState(true); 
   const [inputValue, setInputValue] = useState("");
+  const [ticketType, setTicketType] = useState("standard");
   const dispatch = useDispatch();
   
   const objectsData = useSelector((state) => state.cart);
@@ -41,18 +42,22 @@ const ObjectDetails = () => {
     setInputValue(event.target.value);
   };
 
+  const handleTicketTypeChange = (event) => {
+    setTicketType(event.target.value);
+  };
+
   const handleGoBack = () => {
     navigate("/catalog");
   };
 
   const handleAddToCart = () => {
-    const existingTicket = objectsData.find(item => item.objectData.id === selectedTicket.id);
+    const existingTicket = objectsData.find(item => item.objectData.id === selectedTicket.id && item.ticketType === ticketType);
     const currentAmount = existingTicket ? existingTicket.amount : 0;
     
     const newAmount = currentAmount + (parseInt(inputValue) > 0 ? parseInt(inputValue) : 1);
 
     if (newAmount <= 5) {
-      dispatch(addToCart(selectedTicket, newAmount - currentAmount));
+      dispatch(addToCart(selectedTicket, newAmount - currentAmount, ticketType));
       alert("Your ticket has been added to the cart");
     } else {
       alert("You can add a maximum of 5 tickets for this event.");
@@ -99,12 +104,22 @@ const ObjectDetails = () => {
                     onChange={handleInputChange}
                   />
                 </label>
-              
+                <label>
+                  <select 
+                    id="ticketType"
+                    value={ticketType}
+                    onChange={handleTicketTypeChange}
+                  >
+                    <option value="standard">Standard Ticket</option>
+                    <option value="vip">VIP Ticket</option>
+                    <option value="child">Child Ticket</option>
+                  </select>
+                </label>
               </form>
             </div>
           </div>
           <div className="price-and-buttons">
-            <div className="object-detail__price">Price: {selectedTicket.price}</div>
+            <div className="object-detail__price">Price: {selectedTicket.price}$</div>
             <div className="options">
               <button className="go-back__button" onClick={handleGoBack}>Go back</button>
               <button className="add__button" onClick={handleAddToCart}>Add to cart</button>
@@ -117,6 +132,7 @@ const ObjectDetails = () => {
 };
 
 export default ObjectDetails;
+
 
 
 
